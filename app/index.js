@@ -5,6 +5,10 @@ import UserRight from "../components/User/UserRight";
 import UserLeft from "../components/User/UserLeft";
 import DiceAnimation from "../components/DiceAnimation/DiceAnimationCC";
 import Betting from "../components/Betting";
+import CoinFlipAnimation from "../components/Animations/CoinFlipAnimation";
+import CoinAnimation from "../components/Animations/Lotieeee";
+import Coin from "../components/Coin/testingCoins";
+import TestingCoins1 from "../components/Coin/testingCoins1";
 
 const App = () => {
   const [dice1, setDice1] = useState(1);
@@ -33,22 +37,27 @@ const App = () => {
       <View style={styles.bothSection}>
         {/* Top Section - 70% of screen height */}
         <View style={styles.topSection}>
-          <View style={{margin:"auto"}}>
+          {/* <CoinAnimation /> */}
+          <View style={{ margin: "auto" }}>
             {/* <User /> */}
-            <UserRight/>
+            <UserRight />
           </View>
 
-          <View style={{ margin: "auto" }}>
+          <View style={{ margin: "auto", marginTop: 100, gap: 35 }}>
             <CardAnimationCC totalCount={totalCount} />
+            {/* <CoinAnimation /> */}
             <View style={{}}>
-            <DiceAnimation dice1={dice1} dice2={dice2}  totalCount={10}/>
+              <DiceAnimation dice1={dice1} dice2={dice2} totalCount={10} />
               <Betting />
             </View>
           </View>
           <View style={styles.userSection}>
-            <UserLeft/>
+            <UserLeft />
+            {/* <Coin/> */}
             {/* <User /> */}
           </View>
+
+          <View style={styles.animations}>{/* <CoinFlipAnimation /> */}</View>
         </View>
       </View>
     </ImageBackground>
@@ -64,9 +73,8 @@ const styles = {
   backgroundImage: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     // alignItems: "center",
-
     // borderWidth:100,
     // borderRadius: 10,
   },

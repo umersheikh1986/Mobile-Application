@@ -61,31 +61,32 @@ const CardAnimationCC = ({ totalCount }) => {
 
 const styles = StyleSheet.create({
   cardContainer: {
+    // position: "absolute",
     flexDirection: "row", // Aligning cards in a row
-    justifyContent: "center", // Center the cards horizontally
-    alignItems: "center", // Align cards vertically
-    marginTop: 20, // Add some space from the top of the container
+    // justifyContent: "center", // Center the cards horizontally
+    // alignItems: "center", // Align cards vertically
+    // marginBottom: -100, // Add some space from the top of the container
   },
   card1: {
     justifyContent: "center",
     alignItems: "center",
     // maginTop:"auto",
-    marginBottom: -15,
+    marginTop: 14,
     width: 120,
     height: 50,
-    marginRight: 10, // Add some space between the cards
+    marginRight: 7, // Add some space between the cards
     borderRadius: 25,
-    transform: [{ rotate: "45deg" }],
+    transform: [{ rotate: "31deg" }],
     zIndex: 3, // Higher zIndex so it's on top of others
   },
   card2: {
     justifyContent: "center",
     alignItems: "center",
-    width: 120,
+    width: 130,
     height: 50,
     borderRadius: 25,
-    marginBottom:-45,
-    marginTop: 40, // Add space between cards
+    // marginBottom:-45,
+    marginTop: 50, // Add space between cards
     zIndex: 2, // Middle zIndex
   },
   card3: {
@@ -93,10 +94,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 120,
     height: 50,
-    marginBottom: -15,
+    marginTop: 14,
     marginLeft: 10, // Add space between cards
     borderRadius: 25,
-    transform: [{ rotate: "-45deg" }],
+    transform: [{ rotate: "-31deg" }],
     zIndex: 1, // Lowest zIndex so it's behind other cards
   },
   defaultCard: {

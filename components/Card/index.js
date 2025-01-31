@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
   boxContainer: {
     flexDirection: "row",
     gap: 10,
-
   },
   box: {
     flex: 1,

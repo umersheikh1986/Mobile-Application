@@ -64,9 +64,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom:-140,
-    marginTop: 100,
+    // justifyContent: "center",
+    // marginBottom:-140,
+    // marginTop: 100,
     // margin:"auto",
     // paddingHorizontal: 10,
   },

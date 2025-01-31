@@ -113,8 +113,10 @@ const DiceAnimationCC = ({ dice1, dice2, totalCount }) => {
 
 const styles = StyleSheet.create({
   container: {
+    // marginTop:270
     // margin: "auto",
-    // flex: 1,
+    // marginTop: 2,
+    // flex: "row",
     // justifyContent: "center",
     // alignItems: "center",
     // backgroundColor: "#000",
@@ -126,31 +128,31 @@ const styles = StyleSheet.create({
   },
   diceWrapper: {
     alignItems: "center",
-    marginHorizontal: 5, 
+    marginHorizontal: 5,
   },
   diceContainer: {
-    width: 50, 
-    height: 50, 
+    width: 50,
+    height: 50,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor:"green",
+    alignItems: "bottom",
+    backgroundColor: "green",
   },
   dice: {
-    width: 50, 
-    height: 50, 
+    width: 50,
+    height: 50,
   },
   totalCount: {
     color: "#fff",
     fontWeight: "bold",
-    width: 50, 
-    height: 50, 
+    width: 50,
+    height: 50,
     textAlign: "center",
-    lineHeight: 50, 
+    lineHeight: 50,
   },
   countWrapper: {
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: 10, 
+    marginLeft: 10,
   },
 });
 
