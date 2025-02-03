@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet,Image } from "react-native";
 import React from "react";
+import { Avatar } from "react-native-elements";
 
 const profileImage = require("../../assets/images/user-game.png");
 const user = [
@@ -23,7 +24,14 @@ const UserLeft = () => {
 
           <View style={styles.box1}>
             
-            <Image source={profileImage} style={{width:40,height:40}}  />
+            {/* <Image source={profileImage} style={{width:40,height:40}}  /> */}
+            <Avatar
+   rounded
+    source={{
+      uri:
+        'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    }}
+ />
             
             <Text>{user[0].name}</Text>
             <Text>{user[0].coins}</Text>
@@ -93,3 +101,31 @@ const styles = StyleSheet.create({
   },
 });
 export default UserLeft;
+// import { Avatar } from 'react-native-elements';
+
+// const UserLeft = () => {
+//   return(
+//     <><Avatar
+//     rounded
+//     source={{
+//       uri:
+//         'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+//     }}
+//   />
+  
+//   <Avatar rounded title="MD" />
+  
+//   <Avatar rounded icon={{ name: 'home' }} />
+  
+//   <Avatar
+//     source={{
+//       uri:
+//         'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+//     }}
+//     >
+//     <Avatar.Accessory {...accessoryProps} />
+//   </Avatar></>
+//   )
+// }
+
+// export default user

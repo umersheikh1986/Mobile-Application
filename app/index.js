@@ -74,6 +74,7 @@ const styles = {
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-between",
+    height:400
     // alignItems: "center",
     // borderWidth:100,
     // borderRadius: 10,
