@@ -22,7 +22,7 @@ const Betting = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container1}>
       <TouchableOpacity 
         style={[styles.navButton, { opacity: startIndex === 0 ? 0.5 : 1 }]} 
         onPress={handlePrevious}
@@ -61,12 +61,12 @@ const Betting = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  container1: {
     flexDirection: "row",
     alignItems: "center",
     // justifyContent: "center",
     // marginBottom:-140,
-    // marginTop: 100,
+    marginTop: 0,
     // margin:"auto",
     // paddingHorizontal: 10,
   },

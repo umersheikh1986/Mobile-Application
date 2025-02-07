@@ -7,7 +7,7 @@ import Animated, {
   withSequence,
   Easing,
 } from "react-native-reanimated";
-
+import CoinFlipAnimation from "../Animations/CoinFlipAnimation";
 const DiceAnimationCC = ({ dice1, dice2, totalCount }) => {
   const diceImages = [
     require("../../assets/images/dice1.png"),

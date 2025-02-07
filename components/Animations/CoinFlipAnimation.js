@@ -1,41 +1,43 @@
-import React, { useEffect } from "react";
-import { View, StyleSheet, Image } from "react-native";
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-  withRepeat,
-  Easing,
-} from "react-native-reanimated";
+import React, { useRef, useState } from 'react';
+import { View, Button, StyleSheet } from 'react-native';
+import LottieView from 'lottie-react-native';
 
-const CoinFlipAnimation = () => {
-  const rotateY = useSharedValue(0); // For flipping the coin
+const App = () => {
+  const animationRef = useRef(null);
+  const [isRolling, setIsRolling] = useState(false);
 
-  // Start the flip animation
-  useEffect(() => {
-    rotateY.value = withRepeat(
-      withTiming(360, { duration: 1000, easing: Easing.linear }),
-      -1, // Infinite repeat
-      false // Don't reverse the animation
-    );
-  }, []);
+  // Function to roll the dice
+  const rollDice = () => {
+    if (isRolling) return; // Prevent multiple rolls at the same time
 
-  // Animated style for the coin
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [
-      { perspective: 1000 }, // Required for 3D effects
-      { rotateY: `${rotateY.value}deg` }, // Flip the coin
-    ],
-  }));
+    setIsRolling(true);
+
+    // Play the rolling animation
+    animationRef.current?.play();
+
+    // Simulate a dice roll with a random delay
+    setTimeout(() => {
+      const randomValue = Math.floor(Math.random() * 6) + 1; // Random number between 1 and 6
+      const frame = (randomValue - 1) * 10; // Adjust this based on your animation's frame structure
+
+      // Stop the animation at the random frame
+      animationRef.current?.pause();
+      animationRef.current?.goToAndStop(frame, true);
+
+      setIsRolling(false);
+    }, 2000); // Adjust the delay to match the duration of your rolling animation
+  };
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.coin, animatedStyle]}>
-        <Image
-          source={require("../../assets/images/casino-coin.png")} // Replace with your coin image
-          style={styles.coinImage}
-        />
-      </Animated.View>
+      <LottieView
+        ref={animationRef}
+        source={require('../../assets/images/Dice.json')} // Replace with your animation file
+        autoPlay={true} // Disable autoplay
+        loop={true} // Disable loop
+        style={styles.animation}
+      />
+      <Button title="Roll Dice" onPress={rollDice} disabled={isRolling} />
     </View>
   );
 };
@@ -43,20 +45,14 @@ const CoinFlipAnimation = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    zIndex:2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  coin: {
+  animation: {
     width: 100,
     height: 100,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  coinImage: {
-    width: "100%",
-    height: "100%",
-    borderRadius: 50, // Make it circular
   },
 });
 
-export default CoinFlipAnimation;
+export default App;

@@ -5,10 +5,13 @@ import UserRight from "../components/User/UserRight";
 import UserLeft from "../components/User/UserLeft";
 import DiceAnimation from "../components/DiceAnimation/DiceAnimationCC";
 import Betting from "../components/Betting";
+import CoinDropGame from "../components/Animations/Newanimate";
+import CoinAnim from "../components/Animations/coinAnim";
 import CoinFlipAnimation from "../components/Animations/CoinFlipAnimation";
 import CoinAnimation from "../components/Animations/Lotieeee";
 import Coin from "../components/Coin/testingCoins";
 import TestingCoins1 from "../components/Coin/testingCoins1";
+import CoinLeft from "../components/Animations/coinleft";
 
 const App = () => {
   const [dice1, setDice1] = useState(1);
@@ -42,13 +45,19 @@ const App = () => {
             {/* <User /> */}
             <UserRight />
           </View>
-
-          <View style={{ margin: "auto", marginTop: 100, gap: 35 }}>
-            <CardAnimationCC totalCount={totalCount} />
-            {/* <CoinAnimation /> */}
+ {/* <Image
+          source={require('../assets/images/Coin-pic.jpg')} // Adjust the path to your image
+        /> */}
+          <View style={{ margin: "auto", marginTop: 100, gap: 3 }}>
+            {/* <CoinAnim /> */}
+            <CoinDropGame />
+            {/* <CardAnimationCC totalCount={totalCount} /> */}
+            {/* <CoinLeft /> */}
+            {/* <CoinLeft /> */}
             <View style={{}}>
-              <DiceAnimation dice1={dice1} dice2={dice2} totalCount={10} />
-              <Betting />
+              {/* <DiceAnimation dice1={dice1} dice2={dice2} totalCount={10} /> */}
+              {/* <CoinFlipAnimation /> */}
+              {/* <Betting /> */}
             </View>
           </View>
           <View style={styles.userSection}>

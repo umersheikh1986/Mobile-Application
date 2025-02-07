@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet,Image } from "react-native";
 import React from "react";
+import { Avatar } from "react-native-elements";
 
 const profileImage = require("../../assets/images/user-game.png");
 const user = [
@@ -24,26 +25,47 @@ const UserRight = () => {
 
           <View style={styles.box1}>
             
-            <Image source={profileImage} style={{width:40,height:40}}  />
+             <Avatar
+             style={{width:60,height:60}}
+              rounded
+               source={{
+                 uri:
+                   'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
+               }}
+            />
             
-            <Text>{user[0].name}</Text>
-            <Text>{user[0].coins}</Text>
+            {/* <Text>{user[0].name}</Text> */}
+            {/* <Text>{user[0].coins}</Text> */}
             
           </View>
           <View style={styles.box2}>
             
-            <Image source={profileImage} style={{width:40,height:40}}  />
+             <Avatar
+             style={{width:60,height:60}}
+              rounded
+               source={{
+                 uri:
+                   'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
+               }}
+            />
             
-            <Text>{user[1].name}</Text>
-            <Text>{user[1].coins}</Text>
+            {/* <Text>{user[1].name}</Text> */}
+            {/* <Text>{user[1].coins}</Text> */}
             
           </View>
           <View style={styles.box3}>
             
-            <Image source={profileImage} style={{width:40,height:40}}  />
+             <Avatar
+             style={{width:60,height:60}}
+              rounded
+               source={{
+                 uri:
+                   'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
+               }}
+            />
             
-            <Text>{user[2].name}</Text>
-            <Text>{user[2].coins}</Text>
+            {/* <Text>{user[2].name}</Text> */}
+            {/* <Text>{user[2].coins}</Text> */}
             
           </View>
         );
@@ -62,19 +84,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "lightblue",
+    // backgroundColor: "lightblue",
     width: 80,
 // marginTop:25,
     height: 50,
     borderRadius:25,
     marginLeft:50,
+    marginTop:60
     
   },
   box2: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "lightblue",
+    // backgroundColor: "lightblue",
     width: 80,
 marginLeft:20,
     height: 50,
@@ -85,10 +108,10 @@ marginLeft:20,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "lightblue",
+    // backgroundColor: "lightblue",
     width: 80,
-marginLeft:70,
-marginBottom:25,
+marginLeft:50,
+marginBottom:38,
     height: 50,
     borderRadius:25,
     borderBottom:50,

@@ -8,6 +8,7 @@ import Animated, {
   Easing,
 } from "react-native-reanimated";
 
+
 const CardAnimationCC = ({ totalCount }) => {
   const borderWidth = useSharedValue(0); // Default border width
 
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     // maginTop:"auto",
-    marginTop: 14,
+    marginTop: 48,
     width: 120,
     height: 50,
     marginRight: 7, // Add some space between the cards
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
     // marginBottom:-45,
-    marginTop: 50, // Add space between cards
+    marginTop: 80, // Add space between cards
     zIndex: 2, // Middle zIndex
   },
   card3: {
@@ -94,20 +95,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 120,
     height: 50,
-    marginTop: 14,
+    marginTop: 48,
     marginLeft: 10, // Add space between cards
     borderRadius: 25,
     transform: [{ rotate: "-31deg" }],
     zIndex: 1, // Lowest zIndex so it's behind other cards
   },
   defaultCard: {
-    backgroundColor: "lightblue",
+    // backgroundColor: "lightblue",
     width: 120,
     height: 50,
-    borderColor: "transparent",
   },
   highlight: {
-    backgroundColor: "yellow",
+    // backgroundColor: "yellow",
   },
   text: {
     fontSize: 10,
