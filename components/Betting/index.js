@@ -24,7 +24,7 @@ const Betting = () => {
   return (
     <View style={styles.container1}>
       <TouchableOpacity 
-        style={[styles.navButton, { opacity: startIndex === 0 ? 0.5 : 1 }]} 
+        style={[styles.navButton, { opacity: startIndex === 0 ? 0.5 : 1 }]}
         onPress={handlePrevious}
         disabled={startIndex === 0}
       >
@@ -50,7 +50,7 @@ const Betting = () => {
       </View>
 
       <TouchableOpacity 
-        style={[styles.navButton, { opacity: startIndex + itemsPerPage >= allPrices.length ? 0.5 : 1 }]} 
+        style={[styles.navButton, { opacity: startIndex + itemsPerPage >= allPrices.length ? 0.5 : 1 }]}
         onPress={handleNext}
         disabled={startIndex + itemsPerPage >= allPrices.length}
       >

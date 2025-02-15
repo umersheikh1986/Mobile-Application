@@ -1,58 +1,59 @@
-import React, { useRef, useState } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
-import LottieView from 'lottie-react-native';
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
+import LottieView from "lottie-react-native";
 
-const App = () => {
-  const animationRef = useRef(null);
-  const [isRolling, setIsRolling] = useState(false);
+const DiceRoll = () => {
+  const [playFirst, setPlayFirst] = useState(true);
+  const [playSecond, setPlaySecond] = useState(false);
 
-  // Function to roll the dice
-  const rollDice = () => {
-    if (isRolling) return; // Prevent multiple rolls at the same time
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPlayFirst(false);
+      setPlaySecond(false);
 
-    setIsRolling(true);
+      setTimeout(() => {
+        setPlayFirst(true);
+        setTimeout(() => {
+          setPlaySecond(true);
+        }, 500); // Second dice starts 0.5s after the first one
+      }, 1000);
+    }, 6000); // Restart every 6 seconds
 
-    // Play the rolling animation
-    animationRef.current?.play();
-
-    // Simulate a dice roll with a random delay
-    setTimeout(() => {
-      const randomValue = Math.floor(Math.random() * 6) + 1; // Random number between 1 and 6
-      const frame = (randomValue - 1) * 10; // Adjust this based on your animation's frame structure
-
-      // Stop the animation at the random frame
-      animationRef.current?.pause();
-      animationRef.current?.goToAndStop(frame, true);
-
-      setIsRolling(false);
-    }, 2000); // Adjust the delay to match the duration of your rolling animation
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <View style={styles.container}>
       <LottieView
-        ref={animationRef}
-        source={require('../../assets/images/Dice.json')} // Replace with your animation file
-        autoPlay={true} // Disable autoplay
-        loop={true} // Disable loop
+        source={require("../../assets/images/Dice.json")}
+        autoPlay={playFirst}
+        loop={false}
         style={styles.animation}
       />
-      <Button title="Roll Dice" onPress={rollDice} disabled={isRolling} />
+      <LottieView
+        source={require("../../assets/images/Dice.json")}
+        autoPlay={playSecond}
+        loop={false}
+        style={styles.animation}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    zIndex:2,
-    justifyContent: 'center',
+    flexDirection: 'row',  
+    justifyContent: 'center', 
     alignItems: 'center',
+    marginTop: 80,
+    marginLeft: 20
   },
   animation: {
-    width: 100,
-    height: 100,
+    width: 15, 
+    height: 15,
+    marginHorizontal: -2, 
+    zIndex:3
   },
 });
 
-export default App;
+export default DiceRoll;

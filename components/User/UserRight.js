@@ -1,120 +1,103 @@
-import { View, Text, StyleSheet,Image } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import React from "react";
 import { Avatar } from "react-native-elements";
 
-const profileImage = require("../../assets/images/user-game.png");
-const user = [
+const users = [
   {
     name: "John Doe",
     coins: 1000,
+    avatar: "https://img.freepik.com/free-photo/3d-people-playing-games-gambling-casino_23-2151728700.jpg",
   },
   {
     name: "Jane Doe",
     coins: 2000,
+    avatar: "https://img.freepik.com/free-photo/3d-people-playing-games-gambling-casino_23-2151728711.jpg",
   },
   {
-    name: "John Doe",
+    name: "Alex Smith",
     coins: 3000,
+    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlYH-JOkzkGWNoGkfzo54NS8uR8kdCs2w5wb1sJS5J78jkAamcaJnkv8ySaslV_zcaP_o&usqp=CAU",
   },
 ];
 
 const UserRight = () => {
   return (
     <View style={styles.boxContainer}>
-        return (
-
-          <View style={styles.box1}>
-            
-             <Avatar
-             style={{width:60,height:60}}
-              rounded
-               source={{
-                 uri:
-                   'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
-               }}
-            />
-            
-            {/* <Text>{user[0].name}</Text> */}
-            {/* <Text>{user[0].coins}</Text> */}
-            
-          </View>
-          <View style={styles.box2}>
-            
-             <Avatar
-             style={{width:60,height:60}}
-              rounded
-               source={{
-                 uri:
-                   'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
-               }}
-            />
-            
-            {/* <Text>{user[1].name}</Text> */}
-            {/* <Text>{user[1].coins}</Text> */}
-            
-          </View>
-          <View style={styles.box3}>
-            
-             <Avatar
-             style={{width:60,height:60}}
-              rounded
-               source={{
-                 uri:
-                   'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
-               }}
-            />
-            
-            {/* <Text>{user[2].name}</Text> */}
-            {/* <Text>{user[2].coins}</Text> */}
-            
-          </View>
-        );
+      <View style={styles.box1}>
+        <Avatar
+          style={{ width: 40, height: 40,    borderWidth: 2,
+            borderColor: "#FFD700", borderRadius:20 }}
+          rounded
+          source={{ uri: users[0].avatar }}
+        />
+        <Text style={styles.coins}>💰2000</Text> 
+      </View>
+      <View style={styles.box2}>
+        <Avatar
+          style={{ width: 40, height: 40,  borderWidth: 2,
+            borderColor: "#FFD700", borderRadius:20 }}
+          rounded
+          source={{ uri: users[1].avatar }}
+        />
+        <Text style={styles.coins}>💰3000</Text> 
+      </View>
+      <View style={styles.box3}>
+        <Avatar
+          style={{ width: 40, height: 40,  borderWidth: 2,
+            borderColor: "#FFD700", borderRadius:20 }}
+          rounded
+          source={{ uri: users[2].avatar }}
+        />
+        <Text style={styles.coins}>💰5000</Text> 
+      </View>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   boxContainer: {
-   flex:1,
-    flexDirection:"column",
-  
-    
-    gap: 10,
+    flex: 1,
+    flexDirection: "column",
+    gap: 8,
   },
   box1: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "lightblue",
     width: 80,
-// marginTop:25,
     height: 50,
-    borderRadius:25,
-    marginLeft:50,
-    marginTop:60
-    
+    borderRadius: 25,
+    marginLeft: 55,
+    marginTop: -18,
+  },
+  coins: {
+    color: "#FFD700",
+    fontSize: 14,
+    fontWeight: "bold",
   },
   box2: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "lightblue",
     width: 80,
-marginLeft:20,
+    marginLeft: 20,
     height: 50,
-    borderRadius:25,
-    
+    marginTop:6,
+    borderRadius: 25,
+    transform: [{ rotate: "-10deg" }]
   },
   box3: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "lightblue",
     width: 80,
-marginLeft:50,
-marginBottom:38,
+    marginLeft: 70,
+    marginBottom: 13,
+    transform: [{ rotate: "-25deg" }],
     height: 50,
-    borderRadius:25,
-    borderBottom:50,
+    borderRadius: 25,
+    borderBottom: 50,
   },
 });
+
 export default UserRight;

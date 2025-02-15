@@ -3,9 +3,13 @@ import { View, Image, ImageBackground } from "react-native";
 import CardAnimationCC from "../components/CardAnimation/CardAnimationCC";
 import UserRight from "../components/User/UserRight";
 import UserLeft from "../components/User/UserLeft";
+import Timer from "../components/Timer";
+import DiceRoll from "../components/Animations/CoinFlipAnimation";
 import DiceAnimation from "../components/DiceAnimation/DiceAnimationCC";
 import Betting from "../components/Betting";
+import Dice from "../components/Dice";
 import CoinDropGame from "../components/Animations/Newanimate";
+import DiceValue from "../components/diceValue";
 import CoinAnim from "../components/Animations/coinAnim";
 import CoinFlipAnimation from "../components/Animations/CoinFlipAnimation";
 import CoinAnimation from "../components/Animations/Lotieeee";
@@ -17,7 +21,7 @@ const App = () => {
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(1);
   const [totalCount, setTotalCount] = useState(2);
-  const backgroundImage = require("../assets/images/casino-background.jpg");
+  const backgroundImage = require("../assets/images/Game-table.png");
   const casino_girl = require("../assets/images/casino-girl.png");
   const casino_girl_ring = require("../assets/images/casino-girl-ring.png");
   const caino_table = require("../assets/images/casino-table.png");
@@ -38,10 +42,12 @@ const App = () => {
   return (
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
       <View style={styles.bothSection}>
+        {/*  */}
         {/* Top Section - 70% of screen height */}
         <View style={styles.topSection}>
           {/* <CoinAnimation /> */}
           <View style={{ margin: "auto" }}>
+          <Timer />
             {/* <User /> */}
             <UserRight />
           </View>
@@ -50,6 +56,7 @@ const App = () => {
         /> */}
           <View style={{ margin: "auto", marginTop: 100, gap: 3 }}>
             {/* <CoinAnim /> */}
+            {/* <Dice /> */}
             <CoinDropGame />
             {/* <CardAnimationCC totalCount={totalCount} /> */}
             {/* <CoinLeft /> */}
@@ -61,6 +68,7 @@ const App = () => {
             </View>
           </View>
           <View style={styles.userSection}>
+          <DiceValue />
             <UserLeft />
             {/* <Coin/> */}
             {/* <User /> */}

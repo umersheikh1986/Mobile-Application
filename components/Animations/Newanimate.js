@@ -252,13 +252,14 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
+import DiceRoll from "./CoinFlipAnimation";
 
 const CoinDropGame = () => {
   const [selectedBox, setSelectedBox] = useState(null);
   const [coins, setCoins] = useState({ 0: [], 1: [], 2: [] });
 
-  const maxCoinsPerRow = 6;
-  const maxRows = 5;
+  const maxCoinsPerRow = 7;
+  const maxRows = 2;
 
   const coinImage = require("../../assets/images/casino-coin.png");
   const allPrices = ["3k", "5k", "10k", "20k", "100K", "200K", "2000K"];
@@ -272,18 +273,18 @@ const CoinDropGame = () => {
       setCoins((prevCoins) => {
         const currentCoins = prevCoins[selectedBox];
         const maxTotalCoins = maxCoinsPerRow * maxRows;
-
+  
         if (currentCoins.length >= maxTotalCoins) return prevCoins;
-
+  
         // Define box dimensions
-        const boxWidth = 100; // Width of the box
-        const boxHeight = 60; // Height of the box
+        const boxWidth = 78; // Width of the box
+        const boxHeight = 90; // Height of the box
         const coinSize = 20; // Coin size
-
-        // Generate random x, y positions inside the box
+  
+        // Generate a completely random position within the box
         const randomX = Math.random() * (boxWidth - coinSize);
         const randomY = Math.random() * (boxHeight - coinSize);
-
+  
         return {
           ...prevCoins,
           [selectedBox]: [
@@ -294,7 +295,8 @@ const CoinDropGame = () => {
       });
     }
   };
-
+  
+  
   const handlePrevious = () => {
     if (startIndex > 0) {
       setStartIndex(startIndex - 1);
@@ -308,9 +310,9 @@ const CoinDropGame = () => {
   };
 
   const boxStyles = [
-    { transform: [{ rotate: "30deg" }], marginTop: 15, marginRight: 100 },
-    { transform: [{ rotate: "-5deg" }], marginTop: 75, marginRight: 30 },
-    { transform: [{ rotate: "-40deg" }], marginTop: 54, marginLeft: 30 },
+    { transform: [{ rotate: "40deg" }], marginTop: -45,width:50, },
+    { transform: [{ rotate: "-5deg" }], marginTop: 0, width:50 },
+    { transform: [{ rotate: "-40deg" }], marginTop: -4, width:50 },
   ];
 
   return (
@@ -318,6 +320,7 @@ const CoinDropGame = () => {
       <View style={styles.maincontainer}>
         <View style={styles.container}>
           {/* Boxes */}
+          <DiceRoll />
           <View style={styles.boxContainer}>
             {[0, 1, 2].map((index) => (
               <View
@@ -346,6 +349,7 @@ const CoinDropGame = () => {
         {/* Coin Selection & Box Selection Buttons */}
         <View style={styles.coinSelectionContainer}>
           {/* Coin Selection Buttons */}
+          {/* <View style={styles.coinsContainer}> */}
           <TouchableOpacity
             style={[styles.navButton, { opacity: startIndex === 0 ? 0.5 : 1 }]}
             onPress={handlePrevious}
@@ -386,6 +390,7 @@ const CoinDropGame = () => {
           >
             <Text style={styles.navButtonText}>{">"}</Text>
           </TouchableOpacity>
+          {/* </View> */}
 
           {/* Box Selection Buttons (Right Side) */}
           <View style={styles.buttonContainer}>
@@ -420,18 +425,18 @@ const CoinDropGame = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginRight: 180,
+    marginRight: 130,
   },
   boxContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 10,
-    marginLeft: 2,
+    marginTop: -75,
+    marginLeft: -152,
   },
   box: {
     width: 78,
     height: 90,
-    marginHorizontal: -32,
+    marginHorizontal: 20,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -450,13 +455,15 @@ const styles = StyleSheet.create({
   coinImage: {
     width: 20,
     height: 20,
-    margin: -4,
+    position: "absolute", // Ensure absolute positioning inside the box
   },
+  
   coinSelectionContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginTop: 20,
     justifyContent: "center",
+    marginLeft:-110
   },
   chipsContainer: {
     flexDirection: "row",
@@ -523,7 +530,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 5,
     borderWidth: 2, // Gold border
-    borderColor: "gold",
+    borderColor: "#222",
     minWidth: 80, // Ensures equal width without shifting other elements
     alignItems: "center", // Centers text properly
   },

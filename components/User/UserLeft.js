@@ -3,73 +3,54 @@ import React from "react";
 import { Avatar } from "react-native-elements";
 
 const profileImage = require("../../assets/images/user-game.png");
-const user = [
+const users = [
   {
     name: "John Doe",
     coins: 1000,
+    avatar: "https://img.freepik.com/free-photo/3d-people-playing-games-gambling-casino_23-2151728700.jpg",
   },
   {
     name: "Jane Doe",
     coins: 2000,
+    avatar: "https://img.freepik.com/free-photo/3d-people-playing-games-gambling-casino_23-2151728711.jpg",
   },
   {
-    name: "John Doe",
+    name: "Alex Smith",
     coins: 3000,
+    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlYH-JOkzkGWNoGkfzo54NS8uR8kdCs2w5wb1sJS5J78jkAamcaJnkv8ySaslV_zcaP_o&usqp=CAU",
   },
 ];
-
 const UserLeft = () => {
   return (
     <View style={styles.boxContainer}>
-
-          <View style={styles.box1}>
-            
-            {/* <Image source={profileImage} style={{width:40,height:40}}  /> */}
-            <Avatar
-            style={{width:60,height:60}}
-   rounded
-    source={{
-      uri:
-        'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
-    }}
- />
-            
-            {/* <Text>{user[0].name}</Text> */}
-            {/* <Text>{user[0].coins}</Text> */}
-            
-          </View>
-
-          <View style={styles.box2}>
-            
-          <Avatar
-          style={{width:60,height:60}}
-   rounded
-    source={{
-      uri:
-        'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
-    }}
- />
-            
-            {/* <Text>{user[1].name}</Text> */}
-            {/* <Text>{user[1].coins}</Text> */}
-            
-          </View>
-          <View style={styles.box3}>
-            
-          <Avatar
-          style={{width:60,height:60}}
-   rounded
-    source={{
-      uri:
-        'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png',
-    }}
- />
-            
-            {/* <Text>{user[2].name}</Text> */}
-            {/* <Text>{user[2].coins}</Text> */}
-            
-          </View>
-    </View>
+         <View style={styles.box1}>
+           <Avatar
+             style={{ width: 40, height: 40,    borderWidth: 2,
+               borderColor: "#FFD700", borderRadius:20 }}
+             rounded
+             source={{ uri: users[0].avatar }}
+           />
+           <Text style={styles.coins}>💰2000</Text> 
+         </View>
+         <View style={styles.box2}>
+           <Avatar
+             style={{ width: 40, height: 40,  borderWidth: 2,
+               borderColor: "#FFD700", borderRadius:20 }}
+             rounded
+             source={{ uri: users[1].avatar }}
+           />
+           <Text style={styles.coins}>💰3000</Text> 
+         </View>
+         <View style={styles.box3}>
+           <Avatar
+             style={{ width: 40, height: 40,  borderWidth: 2,
+               borderColor: "#FFD700", borderRadius:20 }}
+             rounded
+             source={{ uri: users[2].avatar }}
+           />
+           <Text style={styles.coins}>💰5000</Text> 
+         </View>
+       </View>
   );
 };
 const styles = StyleSheet.create({
@@ -83,10 +64,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 50,
     width: 80,
-    marginRight:40,
+    marginLeft:-130,
     borderRadius:25,
-    marginTop:60
+    marginTop:-22
     // border:"1px solid black",
+  },
+  coins: {
+    color: "#FFD700",
+    fontSize: 14,
+    fontWeight: "bold",
   },
   box2: {
     flex: 1,
@@ -94,9 +80,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // backgroundColor: "lightblue",
     height: 50,
+    marginTop:5,
+    transform: [{ rotate: "20deg" }],
     width: 80,
     borderRadius:25,
-    marginLeft:40,
+    marginLeft:-100,
     // border:"1px solid black",
   },
   box3: {
@@ -105,10 +93,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // backgroundColor: "lightblue",
     height: 50,
+    transform: [{ rotate: "30deg" }],
     width: 80,
     borderRadius:25,
-    marginRight:50,
-    marginBottom:28,
+    marginLeft:-140,
+    marginBottom:10,
     // border:"1px solid black",
   },
 });
